@@ -39,6 +39,13 @@ public class Occ {
         return false;
     }
 
+    public boolean containsNull(){
+        for(List<String> sentence : TextToSentenceString)
+            for (String Word : sentence)
+                if(Word.equals(null))
+                    return true;
+        return false;
+    }
     /**
      * @param WordID
      * @return int
@@ -77,10 +84,12 @@ public class Occ {
     public void CountOccurancesInSentence(List<String> sentence) {
         for (String Word : sentence)
             if (!(Word.equalsIgnoreCase(TARGET)))
-                if (!ContainsPair(WordToIndex.get(Word)))
+                if (!ContainsPair(WordToIndex.get(Word))) {
+                    //System.out.println(Word);
                     //add with index does not work because the arrayList is not big enough
                     OccurancesInSentences.add(PutIntoRightLoc(WordToIndex.get(Word)), new Pair(WordToIndex.get(Word)));
-                else
+
+                }else
                     OccurancesInSentences.get(GetIndexOfPair(WordToIndex.get(Word))).WordCountPlusOne();
     }
 

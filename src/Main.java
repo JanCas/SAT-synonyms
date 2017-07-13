@@ -15,5 +15,6 @@ class Main{
         TextPrep prep = new TextPrep( "C:/Users/janlc/Desktop/Big TXT.txt");
         Calc calculateprep = new Calc(prep.TextToSentenceString, prep.WordToIndex);
         calculateprep.FillWordAndPair();
+        //calculateprep.PrintWordAndPair();
     }
 }

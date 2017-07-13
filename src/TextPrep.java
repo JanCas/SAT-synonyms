@@ -35,10 +35,13 @@ class TextPrep implements Utility{
      */
     public List<String> HasWordListToString(List<HasWord> sentence) {
         ArrayList<String> sen = new ArrayList<>();
-        for (HasWord Word : sentence)
+        for (HasWord Word : sentence) {
+            //System.out.println(Word.word());
             sen.add(Word.word());
+        }
         return sen;
     }
+
 
     /**
      * @Author Jan Cas
@@ -85,19 +88,24 @@ class TextPrep implements Utility{
     public void SentenceToWordToHashMap() {
         for (List<String> sentence : TextToSentenceString)
             for (String Word : sentence)
-                WordToIndex.putIfAbsent(Word, WordToIndex.size());
+                if (Word != null) {
+                    WordToIndex.putIfAbsent(Word, WordToIndex.size());
+                }
     }
-
     /**
      * @Author Jan Cas
      * @param Text
      * Prints out An ArrayList<>List<>String</></>
      */
-    public void PrintStringArray(ArrayList<List<String>> Text){
-        for(List<String> sentence : Text)
-            System.out.println(sentence);
+    public void PrintStringArray(){
+        for(List<String> sentence : TextToSentenceString)
+            for(String Word : sentence)
+                System.out.println(Word);
     }
 
+    public void PrintHM(){
+        WordToIndex.forEach((k,v)-> System.out.println(k+", "+v));
+    }
     /**
      * @Author Jan Cas
      * @param n
