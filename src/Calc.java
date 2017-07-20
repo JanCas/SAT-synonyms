@@ -22,7 +22,7 @@ public class Calc {
 
     public void FillWordAndPair() {
         for (String key : keys) {
-            //System.out.println(key);
+            System.out.println("Target Word: " + key);
             occurances.SetTarget(key);
             WordAndPair.add(new WordAndOcc(key, occurances.Runner()));
             occurances.DeleteArrayList();
