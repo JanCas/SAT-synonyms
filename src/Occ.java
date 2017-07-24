@@ -79,9 +79,10 @@ public class Occ {
     public void CountOccurancesInSentence(List<String> sentence) {
         for (String Word : sentence)
             if (!(Word.equalsIgnoreCase(TARGET)))
-                if (!ContainsPair(WordToIndex.get(Word)))
+                if (!ContainsPair(WordToIndex.get(Word))) {
+                    System.out.println(Word);
                     OccurancesInSentences.add(PutIntoRightLoc(WordToIndex.get(Word)), new Pair(WordToIndex.get(Word)));
-                else
+                }else
                     OccurancesInSentences.get(GetIndexOfPair(WordToIndex.get(Word))).WordCountPlusOne();
     }
 
