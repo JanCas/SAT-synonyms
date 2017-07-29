@@ -7,7 +7,7 @@ public class WordAndOcc {
     String Word;
     ArrayList<Pair> Pairs = new ArrayList<>();
 
-    public  WordAndOcc(String Word, ArrayList<Pair> Pairs){
+    public WordAndOcc(String Word, ArrayList<Pair> Pairs) {
         this.Word = Word;
         this.Pairs = Pairs;
     }

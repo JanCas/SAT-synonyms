@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-class TextPrep implements Utility{
+class TextPrep implements Utility {
 
     public final ArrayList<List<String>> TextToSentenceString = new ArrayList<>();
     public final HashMap<String, Integer> WordToIndex = new HashMap<>();
@@ -22,16 +22,16 @@ class TextPrep implements Utility{
     public void ParseIntoSentencesIntoString(String fn) {
         DocumentPreprocessor dp = new DocumentPreprocessor(fn);
         for (List<HasWord> sentence : dp)
-            if(ContainsWords(HasWordListToString(sentence)))
+            if (ContainsWords(HasWordListToString(sentence)))
                 TextToSentenceString.add(MakesentenceLowerCase(OnlyWord(HasWordListToString(sentence))));
         SentenceToWordToHashMap();
     }
 
     /**
-     * @Author Jan Cas
      * @param sentence
      * @return List<>String</>
      * Takes a List<>HasWord</> and converts it into a List<>String</>
+     * @Author Jan Cas
      */
     public List<String> HasWordListToString(List<HasWord> sentence) {
         ArrayList<String> sen = new ArrayList<>();
@@ -44,10 +44,10 @@ class TextPrep implements Utility{
 
 
     /**
-     * @Author Jan Cas
      * @param sentence
      * @return List<>String</>
      * Takes a sentence stored in List<>String</> and then makes all the word lower Case
+     * @Author Jan Cas
      */
     public List<String> MakesentenceLowerCase(List<String> sentence) {
         for (int i = 0; i < sentence.size(); i++)
@@ -57,23 +57,23 @@ class TextPrep implements Utility{
     }
 
     /**
-     * @Author Jan Cas
      * @param sentence
      * @return List<>String</>
      * takes a sentence stored in List<>String</> and returns that same sentence but without any non Words
+     * @Author Jan Cas
      */
-    public List<String> OnlyWord(List<String> sentence){
+    public List<String> OnlyWord(List<String> sentence) {
         return ContainsWords(sentence) ? RemoveTockens.RemoveAllNonWords(sentence) : null;
     }
 
     /**
-     * @Author Jan Cas
      * @param sentence
      * @return boolean
      * takes a sentence and checks if it contains words and returns a boolean
+     * @Author Jan Cas
      */
     @Override
-    public boolean ContainsWords(List<String> sentence){
+    public boolean ContainsWords(List<String> sentence) {
         for (String Word : sentence)
             if (isBetween(ToASCII(Word), 65, 90) ||
                     isBetween(ToASCII(Word), 97, 122))
@@ -92,38 +92,17 @@ class TextPrep implements Utility{
                     WordToIndex.putIfAbsent(Word, WordToIndex.size());
                 }
     }
-    /**
-     * @Author Jan Cas
-     * @param Text
-     * Prints out An ArrayList<>List<>String</></>
-     */
-    public void PrintStringArray(){
-        for(List<String> sentence : TextToSentenceString)
-            for(String Word : sentence)
-                System.out.println(Word);
-    }
 
-    public void PrintHM(){
-        WordToIndex.forEach((k,v)-> System.out.println(k+", "+v));
-    }
-    /**
-     * @Author Jan Cas
-     * @param n
-     * @param lower
-     * @param upper
-     * @return boolean
-     * checks if n is between lower and upper
-     */
     @Override
     public boolean isBetween(int n, int lower, int upper) {
         return (n >= lower && n <= upper);
     }
 
     /**
-     * @Author Jan Cas
      * @param Word
      * @return int Ascii
      * Converts the first char of a Word (String)
+     * @Author Jan Cas
      */
     @Override
     public int ToASCII(String Word) {

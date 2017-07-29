@@ -1,27 +1,12 @@
-import edu.stanford.nlp.ling.HasWord;
 import java.util.List;
 
 class Remover implements Utility {
 
-    public Remover() {
-    }
+    public Remover() {}
 
     /**
-     *
-     * @param W
-     * @return int ASCII code
-     * Returns the ASCII code of the first letter of the word
-     */
-    public int ToASCII(HasWord W) {
-        return (int) W.toString().charAt(0);
-
-    }
-
-    /**
-     *
      * @param L
-     * @return
-     * removes all the non words in a List
+     * @return removes all the non words in a List
      */
     public List<String> RemoveAllNonWords(List<String> L) {
         int length = L.size();
@@ -42,7 +27,6 @@ class Remover implements Utility {
     }
 
     /**
-     *
      * @param sentence
      * @return boolean
      * Checks if a List Contains Words
@@ -57,17 +41,17 @@ class Remover implements Utility {
     }
 
     /**
-     *
      * @param sentence
      * @return List<>String</>
      * replace all the n't in the List<>String</> with not
      */
-    public List<String> RepealAndReplace(List<String> sentence){
-        for(int i = 0; i < sentence.size(); i++)
-            if(sentence.get(i).equalsIgnoreCase("n't"))
+    public List<String> RepealAndReplace(List<String> sentence) {
+        for (int i = 0; i < sentence.size(); i++)
+            if (sentence.get(i).equalsIgnoreCase("n't"))
                 sentence.set(i, "not");
         return sentence;
     }
+
     @Override
     public int ToASCII(String Word) {
         return (int) Word.charAt(0);

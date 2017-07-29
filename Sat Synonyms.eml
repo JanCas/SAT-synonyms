@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/Sat Synonyms"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="stanford-corenlp-3.8.0.jar" scope="COMPILE">
+		<srcroot url="jar://$MODULE_DIR$/../stanford-corenlp-full-2017-06-09/stanford-corenlp-3.8.0-sources.jar!/"/>
+	</lib>
+</component>

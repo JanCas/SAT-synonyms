@@ -58,13 +58,12 @@ public class Occ {
      * Returns the Index of where the Pair has to be put
      */
     public int PutIntoRightLoc(int key) {
-        System.out.println(OccurancesInSentences.size());
         if (OccurancesInSentences.size() == 0)
             return 0;
         else
             for (int i = 0; i < OccurancesInSentences.size(); i++)
                 if (i + 1 == OccurancesInSentences.size() &&
-                        key > OccurancesInSentences.size())
+                        key > OccurancesInSentences.get(i).getWordIndex())
                     return i + 1;
                 else if (OccurancesInSentences.get(i).getWordIndex() > key ||
                         OccurancesInSentences.get(i + 1).getWordIndex() > key)
@@ -73,16 +72,14 @@ public class Occ {
     }
 
     /**
-     * @param sentence
-     * counts the Occurances in the sentence around the TARGET
+     * @param sentence counts the Occurances in the sentence around the TARGET
      */
     public void CountOccurancesInSentence(List<String> sentence) {
         for (String Word : sentence)
             if (!(Word.equalsIgnoreCase(TARGET)))
-                if (!ContainsPair(WordToIndex.get(Word))) {
-                    System.out.println(Word);
+                if (!ContainsPair(WordToIndex.get(Word)))
                     OccurancesInSentences.add(PutIntoRightLoc(WordToIndex.get(Word)), new Pair(WordToIndex.get(Word)));
-                }else
+                else
                     OccurancesInSentences.get(GetIndexOfPair(WordToIndex.get(Word))).WordCountPlusOne();
     }
 
@@ -100,12 +97,8 @@ public class Occ {
         return OccurancesInSentences;
     }
 
-    public void DeleteArrayList(){
+    public void DeleteArrayList() {
         OccurancesInSentences.clear();
     }
 
-    public void PrintOcc() {
-        for (Pair P : OccurancesInSentences)
-            System.out.println("key " + P.getWordIndex() + " : Value " + P.getWordCount());
-    }
 }
