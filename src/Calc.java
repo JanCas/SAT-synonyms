@@ -87,5 +87,7 @@ public class Calc {
         return sum;
     }
 
-    public double square(int x){return x*x;}
+    public double square(int x) {
+        return x * x;
+    }
 }
