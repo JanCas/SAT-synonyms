@@ -23,9 +23,8 @@ public class Calc {
 
     public void FillWordAndPair() {
         for (String key : keys) {
-            occurances.SetTarget(key);
+            occurances = new Occ(key, WordToIndex, TextString);
             WordAndPair.add(new WordAndOcc(key, occurances.Runner()));
-            occurances.DeleteArrayList();
         }
     }
 
