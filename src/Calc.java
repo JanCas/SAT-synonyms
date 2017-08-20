@@ -67,7 +67,7 @@ public class Calc {
     public double Similarity(String Word1, String Word2) {
         int index1 = FindIndex(Word1);
         int index2 = FindIndex(Word2);
-        return ((WordAndPair.get(index1).getPairs().get(0).getWordCount() * WordAndPair.get(index2).getPairs().get(0).getWordCount()) /
+        return (sigma(WordAndPair.get(index1).getPairs(), WordAndPair.get(index2).getPairs()) /
                 Math.sqrt((sigmaSQ(WordAndPair.get(index1).getPairs())) * (sigmaSQ(WordAndPair.get(index2).getPairs()))));
     }
 
@@ -75,13 +75,16 @@ public class Calc {
         for (int i = 0; i < WordAndPair.size(); i++)
             if (WordAndPair.get(i).getWord().equalsIgnoreCase(Word))
                 return i;
-
         return 0;
     }
 
     public double sigma(ArrayList<Pair> P1, ArrayList<Pair> P2){
         double sum = 0;
-        return 0;
+        for(Pair p : P1)
+            for(Pair x : P2)
+                if(p.getWordIndex() == x.getWordIndex())
+                    sum += p.getWordCount()*x.getWordCount();
+        return sum;
     }
 
     public double sigmaSQ(ArrayList<Pair> Pairs) {
