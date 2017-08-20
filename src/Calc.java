@@ -58,7 +58,7 @@ public class Calc {
 
             double result = Similarity(W1, W2);
             System.out.println();
-            System.out.println("the similarity between the 2 words is : " + result);
+            System.out.println("the similarity between the 2 words is : " + String.format("%.4f", result));
             System.out.println("Do you want to go again (Y/N)");
             repeat = keyboard.nextLine();
         } while (repeat.equalsIgnoreCase("Y"));
@@ -76,6 +76,11 @@ public class Calc {
             if (WordAndPair.get(i).getWord().equalsIgnoreCase(Word))
                 return i;
 
+        return 0;
+    }
+
+    public double sigma(ArrayList<Pair> P1, ArrayList<Pair> P2){
+        double sum = 0;
         return 0;
     }
 

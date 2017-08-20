@@ -13,7 +13,8 @@ class Remover implements Utility {
         for (int i = 0; i < length; i++)
             if (isBetween(ToASCII(L.get(i)), 33, 64) ||
                     isBetween(ToASCII(L.get(i)), 91, 96) ||
-                    isBetween(ToASCII(L.get(i)), 123, 126)) {
+                    isBetween(ToASCII(L.get(i)), 123, 126) ||
+                    L.get(i).length() == 1) {
                 L.remove(i);
                 i--;
                 length--;
