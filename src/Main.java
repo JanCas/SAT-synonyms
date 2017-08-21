@@ -11,7 +11,7 @@ class Main {
      * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
-        TextPrep prep = new TextPrep("C:\\Users\\janlc\\Desktop\\Text.txt");
+        TextPrep prep = new TextPrep("Data");
         Calc calculateprep = new Calc(prep.TextToSentenceString, prep.WordToIndex);
         calculateprep.caller();
     }
