@@ -14,6 +14,7 @@ class TextPrep implements Utility {
 
     public TextPrep(String fn) {
         ParseIntoSentencesIntoString(fn);
+        TextToSentenceString.trimToSize();
     }
 
     /**
