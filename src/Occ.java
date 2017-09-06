@@ -11,17 +11,32 @@ public class Occ {
     HashMap<String, Integer> WordToIndex = new HashMap<>();
     ArrayList<List<String>> TextToSentenceString = new ArrayList<>();
 
+    /**
+     * Constructer
+     * @param TARGET
+     * @param WordToIndex
+     * @param TextToSentenceString
+     */
     public Occ(String TARGET, HashMap<String, Integer> WordToIndex, ArrayList<List<String>> TextToSentenceString) {
         Occ.TARGET = TARGET;
         this.WordToIndex = WordToIndex;
         this.TextToSentenceString = TextToSentenceString;
     }
 
+    /**
+     * Constructer
+     * @param WordToIndex
+     * @param TextToSenteceString
+     */
     public Occ(HashMap<String, Integer> WordToIndex, ArrayList<List<String>> TextToSenteceString) {
         this.WordToIndex = WordToIndex;
         this.TextToSentenceString = TextToSenteceString;
     }
 
+    /**
+     * sets the target word to calculate the occurances and id
+     * @param TARGET
+     */
     public void SetTarget(String TARGET) {
         Occ.TARGET = TARGET;
     }
@@ -92,13 +107,13 @@ public class Occ {
                 CountOccurancesInSentence(sentence);
     }
 
+    /**
+     * runs all the needed methods to calculate everything
+     * @return ArrayList<>Pair</> with all the occurances
+     */
     public ArrayList<Pair> Runner() {
         CountOccurancesInText();
         return OccurancesInSentences;
-    }
-
-    public void DeleteArrayList() {
-        OccurancesInSentences.clear();
     }
 
 }

@@ -18,7 +18,7 @@ class TextPrep implements Utility {
     }
 
     /**
-     * @Author: Jan Cas
+     * Constructer
      */
     public void ParseIntoSentencesIntoString(String fn) {
         DocumentPreprocessor dp = new DocumentPreprocessor(fn);
@@ -32,7 +32,7 @@ class TextPrep implements Utility {
      * @param sentence
      * @return List<>String</>
      * Takes a List<>HasWord</> and converts it into a List<>String</>
-     * @Author Jan Cas
+     *
      */
     public List<String> HasWordListToString(List<HasWord> sentence) {
         ArrayList<String> sen = new ArrayList<>();
@@ -48,7 +48,6 @@ class TextPrep implements Utility {
      * @param sentence
      * @return List<>String</>
      * Takes a sentence stored in List<>String</> and then makes all the word lower Case
-     * @Author Jan Cas
      */
     public List<String> MakesentenceLowerCase(List<String> sentence) {
         for (int i = 0; i < sentence.size(); i++)
@@ -61,7 +60,6 @@ class TextPrep implements Utility {
      * @param sentence
      * @return List<>String</>
      * takes a sentence stored in List<>String</> and returns that same sentence but without any non Words
-     * @Author Jan Cas
      */
     public List<String> OnlyWord(List<String> sentence) {
         return ContainsWords(sentence) ? RemoveTockens.RemoveAllNonWords(sentence) : null;
@@ -71,7 +69,6 @@ class TextPrep implements Utility {
      * @param sentence
      * @return boolean
      * takes a sentence and checks if it contains words and returns a boolean
-     * @Author Jan Cas
      */
     @Override
     public boolean ContainsWords(List<String> sentence) {
@@ -83,7 +80,6 @@ class TextPrep implements Utility {
     }
 
     /**
-     * @Author Jan Cas
      * Assignes each word to an ID
      */
     public void SentenceToWordToHashMap() {
@@ -103,7 +99,6 @@ class TextPrep implements Utility {
      * @param Word
      * @return int Ascii
      * Converts the first char of a Word (String)
-     * @Author Jan Cas
      */
     @Override
     public int ToASCII(String Word) {
